@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 import { shadow, media } from 'lib/styleUtils';
+import { Link } from 'react-router-dom';
 
 // 상단 고정, 그림자
 const Positioner = styled.div`
@@ -41,11 +42,12 @@ const HeaderContents = styled.div`
 `;
 
 // 로고
-const Logo = styled.div`
+const Logo = styled(Link)`
     font-size: 1.4rem;
     letter-spacing: 2px;
     color: ${oc.teal[7]};
     font-family: 'Rajdhani';
+    text-decoration: none;
 `;
 
 // 중간 여백
@@ -64,7 +66,7 @@ const Header = ({children}) => {
         <Positioner>
             <WhiteBackground>
                 <HeaderContents>
-                    <Logo>InVideo</Logo>
+                    <Logo to="/">InVideo</Logo>
                     <Spacer/>
                     {children}
                 </HeaderContents>
