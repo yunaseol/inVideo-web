@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Header, { LoginButton } from 'components/Base/Header';
+import Header, { LoginButton, LogoutButton } from 'components/Base/Header';
 import { connect } from 'react-redux';
 import * as userActions from 'redux/modules/user';
 import { bindActionCreators } from 'redux';
 import storage from 'lib/storage';
+import './HeaderContainer.css';
 
 class HeaderContainer extends Component {
     handleLogout = async () => {
@@ -20,13 +21,14 @@ class HeaderContainer extends Component {
 
     render() {
         const { visible, user } = this.props;
-        if(!visible) return null;
-
+        if (!visible) return null;
+        console.log("render Header");
+        
         return (
             <Header>
                 { user.get('logged') 
                     ? (<div>
-                        {user.getIn(['loggedInfo', 'username'])} <button onClick={this.handleLogout}>Logout</button>
+                        Hello, {user.getIn(['loggedInfo', 'username'])}! <LogoutButton onClick={this.handleLogout} /> <button id="LogoutButton" onClick={this.handleLogout}>Logout</button>
                     </div> )
                     : <LoginButton/> 
                 }
