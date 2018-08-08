@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "dependencies": {
+    "@opentok/client": "^2.14.7",
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",
     "babel-core": "6.26.0",
@@ -33,6 +34,7 @@
     "lodash": "^4.17.10",
     "object-assign": "4.1.1",
     "open-color": "^1.6.3",
+    "opentok-react": "^0.7.0",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
