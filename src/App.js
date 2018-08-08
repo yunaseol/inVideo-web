@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Home, Auth } from 'pages';
+import { Home, Auth, Video } from 'pages';
 import HeaderContainer from 'containers/Base/HeaderContainer';
 
 import storage from 'lib/storage';
@@ -34,6 +34,7 @@ class App extends Component {
             <div>
                 <HeaderContainer/>
                 <Route exact path="/" component={Home}/>
+                <Route path="/video/:filename" component={Video}/>
                 <Route path="/auth" component={Auth}/>
             </div>
         );
