@@ -19,7 +19,7 @@ const render = Component => {
 
 render(Root);
 
-if(module.hot) {
+if (module.hot) {
     module.hot.accept('./Root', () => render(Root));
 }
 

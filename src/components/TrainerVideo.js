@@ -1,21 +1,54 @@
 import React, { Component } from 'react';
+import * as posenet from '@tensorflow-models/posenet';
+
+const imageScaleFactor = 0.5;
+const outputStride = 16;
+const flipHorizontal = false;
+
+
 
 
 export default class TrainerVideo extends Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
+    estimatePoseOnImage = async (imageElement) => {
+        // load the posenet model from a checkpoint
+        const multiplier = 0.75;
+        const net = await posenet.load(multiplier);
+        const pose = await net.estimateSinglePose(imageElement, imageScaleFactor, flipHorizontal, outputStride);
+    
+        return pose;
+    }
+
+    componentDidMount() {
+        var trainerVideo = this.myRef.current;
+        const pose = this.estimatePoseOnImage(trainerVideo);
+        console.log(pose);
+        pose.then(function(value) {
+            const result = value.keypoints;
+            const nose = result[0].position;
+            const leftankle = result[15].position;
+            const rightankle = result[16].position;
+            console.log(leftankle);
+            console.log(rightankle);
+            // here you can use the result of promiseB
+        });
+    }
 
     render() {
         const { filename } = this.props;
-        console.log(filename);
         const videoStyle = {
             background: 'rgba(255,255,255,0.3)',
-            // z-index: '500',
             position: 'fixed',
-            top: '0',
+            top: '58px',
+            filter: 'opacity(60%)',
           };
 
         return (
-            <video style={videoStyle} width="1000" height="800" controls loop>
-                <source src={'/video/'+filename+'.mp4'} type="video/mp4" />
+            <video ref={this.myRef} style={videoStyle} width="600" height="600" controls loop>
+                <source src={'/' + filename + '.mp4'} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         );

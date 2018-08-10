@@ -2,8 +2,11 @@
   "name": "yuna-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://18.209.29.27:3000",
   "dependencies": {
     "@opentok/client": "^2.14.7",
+    "@tensorflow-models/posenet": "^0.2.2",
+    "@tensorflow/tfjs": "^0.12.4",
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",
     "babel-core": "6.26.0",
