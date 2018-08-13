@@ -18,7 +18,7 @@ class Home extends Component {
 
     render() {
         const { user } = this.props;
-        const username = user.getIn(['loggedInfo', 'username']);
+        // const username = user.getIn(['loggedInfo', 'username']);
         console.log('render Home');
         // console.log("logged: "+ user.get('logged'));
         // console.log(user.getIn(['loggedInfo', 'username']));
@@ -26,20 +26,19 @@ class Home extends Component {
         return (
             <div className="Home">
                 { user.get('logged') 
-                ? (<div id="videos">
-                <h1> { username }</h1>
-                <VideoButton1 />
-                <VideoButton2 />
-                <VideoButton3 />
-                <VideoButton4 />
+                ? (<div className="Home-buttons blackbg">
+                <p><VideoButton1 /></p>
+                <p><VideoButton2 /></p>
+                <p><VideoButton3 /></p>
+                <p><VideoButton4 /></p>
 
                 </div>)
                 : (<div>
-                    <p className="Home-txt">InVideo</p>
+                    <div className="Home-txt blackbg">InVideo</div>
                     <p className="Home-subtxt">Be in the videos</p>
-                    <img src={startImg} className="startImg" alt="InVideo"/>
                 </div>)
                 }
+                <img src={startImg} className="startImg" alt="InVideo"/>
             </div>
 
         );
