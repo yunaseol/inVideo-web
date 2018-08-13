@@ -8,6 +8,7 @@ const BorderedButton = styled(Link)`
     font-weight: 600;
     color: ${oc.cyan[6]};
     border: 1px solid ${oc.cyan[6]};
+    margin-left: 0.5rem;
     padding: 0.5rem;
     padding-bottom: 0.4rem;
     cursor: pointer;
@@ -33,10 +34,4 @@ const LoginButton = () => (
     </BorderedButton>
 );
 
-const LogoutButton = () => (
-    <BorderedButton to="/">
-        Logout
-    </BorderedButton>
-)
-
-export { LoginButton, LogoutButton };
+export { LoginButton };

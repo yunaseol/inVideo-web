@@ -1,25 +1,31 @@
 #LogoutButton{
     font-weight: 600;
+    font-size: 1rem;
     color: #15aabf;
     border: 1px solid #15aabf;
     /* color: ${oc.cyan[6]}; */
     /* border: 1px solid ${oc.cyan[6]}; */
+    width: 125px;
+    height: 35px;
+    margin-left: 10px;
     padding: 0.5rem;
     padding-bottom: 0.4rem;
     cursor: pointer;
     border-radius: 2px;
     text-decoration: none;
     transition: .2s all;
+}
 
-    /* &:hover {
-        background: #15aabf;
-        background: ${oc.cyan[6]};
-        color: white;
-        ${shadow(1)}
-    } */
+#LogoutButton:hover {
+    background: #15aabf;
+    color: white;
+    /* ${shadow(1)} */
+}
 
-    /* &:active {
-        마우스 클릭시 아래로 미세하게 움직임
-        transform: translateY(3px);
-    } */
+#LogoutButton:active {
+    transform: translateY(3px);
+}
+
+#LogoutButton:focus {
+    outline: none;
 }
