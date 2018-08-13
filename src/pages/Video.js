@@ -8,35 +8,26 @@ import { bindActionCreators } from 'redux';
 
 import '@opentok/client';
 
-import {
-    SAMPLE_SERVER_BASE_URL,
-    API_KEY,
-    SESSION_ID,
-    TOKEN
-} from 'config';
-
 class Video extends Component {
+    constructor(props) {
+        super(props);
+        console.log('user', props.user);
+        this.credentials = props.user.getIn(['loggedInfo', 'credentials']);
+        console.log('credentials', this.credentials);
+    }
 
     render() {
         const { filename } = this.props.match.params;
-        const { user } = this.props;
-        const credentials = user.getIn(['loggedInfo', 'credentials']);
-        console.log(credentials);
-        // const credentials = {
-        //     apiKey: API_KEY,
-        //     sessionId: SESSION_ID,
-        //     token: TOKEN,
-        // };
         console.log('render Video');
 
         return (
-            <div className="Home">
-                { (API_KEY && TOKEN && SESSION_ID)
-                ? (<div>
-                    <UserVideo credentials={ credentials } />
-                    <TrainerVideo id="trainerVideo" filename={ filename } />
+            <div>
+                { (this.credentials)
+                ? (<div >
+                    <TrainerVideo filename={ filename } />
+                    <UserVideo credentials={ this.credentials } />
                     </div>)
-                : (<div>no API KEY</div>)
+                : (<div>no credentials</div>)
                 }
             </div>
         );
