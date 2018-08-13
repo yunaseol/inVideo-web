@@ -9,19 +9,10 @@ import '@opentok/client';
 // import './polyfills';
 
 class Home extends Component {
-    // renderApp = (credentials) => {
-    //     ReactDOM.render(
-    //       <App credentials={credentials} />,
-    //       document.getElementById('root')
-    //     );
-    //   }
 
     render() {
         const { user } = this.props;
-        // const username = user.getIn(['loggedInfo', 'username']);
-        console.log('render Home');
-        // console.log("logged: "+ user.get('logged'));
-        // console.log(user.getIn(['loggedInfo', 'username']));
+        // console.log('render Home');
 
         return (
             <div className="Home">

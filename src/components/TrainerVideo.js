@@ -23,7 +23,6 @@ export default class TrainerVideo extends Component {
         var trainerVideo = this.myRef.current;
 
         const pose = this.estimatePoseOnImage(trainerVideo);
-        console.log(pose);
         pose.then(function(value) {
             const result = value.keypoints;
             console.log(result);

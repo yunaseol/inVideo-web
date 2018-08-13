@@ -25,7 +25,7 @@ class HeaderContainer extends Component {
             color: '#15aabf'
         }
         if (!visible) return null;
-        console.log("render Header");
+        // console.log("render Header");
         
         return (
             <Header>

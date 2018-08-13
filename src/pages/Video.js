@@ -18,7 +18,7 @@ class Video extends Component {
 
     render() {
         const { filename } = this.props.match.params;
-        console.log('render Video');
+        // console.log('render Video');
 
         return (
             <div>
