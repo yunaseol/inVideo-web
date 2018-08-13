@@ -28,7 +28,7 @@ const VideoButton = styled(Link)`
 `;
 
 const VideoButton1 = () => (
-    <VideoButton to="/video/basicsquat-crop">
+    <VideoButton to="/video/basicsquat">
         Basic Squats
     </VideoButton>
 );
