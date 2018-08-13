@@ -11,9 +11,9 @@ import '@opentok/client';
 class Video extends Component {
     constructor(props) {
         super(props);
-        console.log('user', props.user);
-        this.credentials = props.user.getIn(['loggedInfo', 'credentials']);
-        console.log('credentials', this.credentials);
+        this.userinfo = JSON.parse(localStorage.getItem('loggedInfo'));
+        this.credentials = this.userinfo.credentials;
+        // this.credentials = props.user.getIn(['loggedInfo', 'credentials']);
     }
 
     render() {
