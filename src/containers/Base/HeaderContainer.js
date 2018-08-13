@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header, { LoginButton, LogoutButton } from 'components/Base/Header';
+import Header, { LoginButton } from 'components/Base/Header';
 import { connect } from 'react-redux';
 import * as userActions from 'redux/modules/user';
 import { bindActionCreators } from 'redux';
@@ -21,14 +21,18 @@ class HeaderContainer extends Component {
 
     render() {
         const { visible, user } = this.props;
+        const usernameStyle = {
+            color: '#15aabf'
+        }
         if (!visible) return null;
         console.log("render Header");
         
         return (
             <Header>
                 { user.get('logged') 
-                    ? (<div>
-                        Hello, {user.getIn(['loggedInfo', 'username'])}! <LogoutButton onClick={this.handleLogout} /> <button id="LogoutButton" onClick={this.handleLogout}>Logout</button>
+                    ? (<div style={usernameStyle}>
+                        <b>Hello, {user.getIn(['loggedInfo', 'username'])}</b>
+                        <button id="LogoutButton" onClick={this.handleLogout}>Logout</button>
                     </div> )
                     : <LoginButton/> 
                 }
