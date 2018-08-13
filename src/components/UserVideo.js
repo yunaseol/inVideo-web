@@ -72,30 +72,21 @@ export default class UserVideo extends Component {
       console.log('Subscribe Success');
       var userVideo = this.userVideoRef.current.firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.children[2];
       console.log('uservideo', userVideo);
-      // const pose = this.estimatePoseOnImage(userVideo);
-      // console.log(pose);
-      // pose.then(function(value) {
-      //     const result = value.keypoints;
-      //     console.log(result);
-      //     // const nose = result[0].position;
-      //     // const leftankle = result[15].position;
-      //     // const rightankle = result[16].position;
-      //     // console.log(leftankle);
-      //     // console.log(rightankle);
-      // });
-      // setInterval(() => {
-      //     const pose = this.estimatePoseOnImage(trainerVideo);
-      //     console.log(pose);
-      //     pose.then(function(value) {
-      //         const result = value.keypoints;
-      //         console.log(result);
-      //         // const nose = result[0].position;
-      //         // const leftankle = result[15].position;
-      //         // const rightankle = result[16].position;
-      //         // console.log(leftankle);
-      //         // console.log(rightankle);
-      //     });
-      // }, 1000);
+      userVideo.width = 720;
+      userVideo.height = 720;
+
+      setInterval(() => {
+          const pose = this.estimatePoseOnImage(userVideo);
+          console.log(pose);
+          pose.then(function(value) {
+              const result = value.keypoints;
+              // console.log(result);
+              const leftankle = result[15].position;
+              const rightankle = result[16].position;
+              console.log('left', leftankle);
+              console.log('right', rightankle);
+          });
+      }, 1000);
     
     };
   

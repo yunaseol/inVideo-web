@@ -25,27 +25,13 @@ export default class TrainerVideo extends Component {
         const pose = this.estimatePoseOnImage(trainerVideo);
         pose.then(function(value) {
             const result = value.keypoints;
-            console.log(result);
+            // console.log(result);
             // const nose = result[0].position;
-            // const leftankle = result[15].position;
-            // const rightankle = result[16].position;
-            // console.log(leftankle);
-            // console.log(rightankle);
+            const leftankle = result[15].position;
+            const rightankle = result[16].position;
+            console.log('tl', leftankle);
+            console.log('tr', rightankle);
         });
-        // setInterval(() => {
-        //     const pose = this.estimatePoseOnImage(trainerVideo);
-        //     console.log(pose);
-        //     pose.then(function(value) {
-        //         const result = value.keypoints;
-        //         console.log(result);
-        //         // const nose = result[0].position;
-        //         // const leftankle = result[15].position;
-        //         // const rightankle = result[16].position;
-        //         // console.log(leftankle);
-        //         // console.log(rightankle);
-        //     });
-        // }, 1000);
-        
     }
 
     render() {
